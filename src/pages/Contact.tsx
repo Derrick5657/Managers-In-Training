@@ -19,7 +19,7 @@ export default function Contact() {
             transition={{ delay: 0.1 }}
             className="text-xl text-slate-600"
           >
-            Ready to transform your business? Contact our team of experts today to schedule your initial consultation.
+            Ready to Increase Sales, Build Strong Teams, and Scale Your Business? Work with Managers in Training to grow your sales, marketing, and HR systems. Reach out today and let's build your next level.
           </motion.p>
         </div>
 
@@ -35,35 +35,69 @@ export default function Contact() {
               <h3 className="text-2xl font-bold text-slate-900 mb-6">Contact Information</h3>
               
               <div className="space-y-6">
+
+                {/* Location */}
                 <div className="flex items-start">
                   <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center shrink-0 mr-4">
                     <MapPin className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 mb-1">Headquarters</h4>
-                    <p className="text-slate-600">123 Business Avenue, Suite 400<br />New York, NY 10001</p>
+                    <h4 className="font-semibold text-slate-900 mb-1">Location</h4>
+                    <p className="text-slate-600">Nairobi, kenya<br />serving clients globally</p>
                   </div>
                 </div>
                 
+                {/* WhatsApp */}
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center shrink-0 mr-4">
-                    <Phone className="w-6 h-6 text-blue-600" />
+                  <div className="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center shrink-0 mr-4">
+                    <Phone className="w-6 h-6 text-green-600" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 mb-1">Phone</h4>
-                    <p className="text-slate-600">+1 (555) 123-4567<br />Mon-Fri, 9am-6pm EST</p>
+                    <h4 className="font-semibold text-slate-900 mb-1">WhatsApp</h4>
+                    <a 
+                      href="https://wa.link/pkdrbh?text=Hello%20Managers%20in%20Training%2C%20I%20am%20interested%20in%20your%20services"
+                      target="_blank"
+                      className="text-blue-600 hover:underline"
+                    >
+                      Chat with us instantly
+                    </a>
                   </div>
                 </div>
-                
+
+                {/* Instagram */}
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center shrink-0 mr-4">
-                    <Mail className="w-6 h-6 text-blue-600" />
+                  <div className="w-12 h-12 bg-pink-50 rounded-xl flex items-center justify-center shrink-0 mr-4">
+                    <Mail className="w-6 h-6 text-pink-600" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 mb-1">Email</h4>
-                    <p className="text-slate-600">contact@mit-consulting.com<br />support@mit-consulting.com</p>
+                    <h4 className="font-semibold text-slate-900 mb-1">Instagram</h4>
+                    <a 
+                      href="https://www.instagram.com/salesmanagersintraining/"
+                      target="_blank"
+                      className="text-blue-600 hover:underline"
+                    >
+                      @salesmanagersintraining
+                    </a>
                   </div>
                 </div>
+
+                {/* LinkedIn */}
+                <div className="flex items-start">
+                  <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center shrink-0 mr-4">
+                    <Mail className="w-6 h-6 text-blue-700" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-900 mb-1">LinkedIn</h4>
+                    <a 
+                      href="https://www.linkedin.com/in/managers-in-training-48aa173b9"
+                      target="_blank"
+                      className="text-blue-600 hover:underline"
+                    >
+                      Managers in Training
+                    </a>
+                  </div>
+                </div>
+
               </div>
             </div>
 
@@ -171,7 +205,7 @@ export default function Contact() {
                 type="submit"
                 className="w-full bg-blue-600 text-white font-bold py-4 px-6 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center text-lg shadow-md"
               >
-                Send Message <Send className="ml-2 w-5 h-5" />
+                Start Your Growth Journey <Send className="ml-2 w-5 h-5" />
               </button>
             </form>
           </motion.div>
