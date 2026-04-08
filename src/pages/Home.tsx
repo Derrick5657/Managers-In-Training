@@ -46,6 +46,7 @@ export default function Home() {
             alt="Business growth in Kenya" 
             className="w-full h-full object-cover opacity-10"
             referrerPolicy="no-referrer"
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/90 to-transparent"></div>
         </div>
@@ -153,6 +154,7 @@ export default function Home() {
                 alt="MIT Consulting Session"
                 className="rounded-3xl shadow-2xl"
                 referrerPolicy="no-referrer"
+                loading="lazy"
               />
               <div className="absolute -bottom-6 -left-6 bg-blue-600 p-8 rounded-2xl shadow-xl hidden md:block">
                 <div className="text-4xl font-extrabold text-white mb-1">150%</div>

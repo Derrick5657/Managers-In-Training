@@ -68,6 +68,7 @@ export default function About() {
                 alt="MIT Team in Nairobi" 
                 className="rounded-3xl shadow-2xl"
                 referrerPolicy="no-referrer"
+                loading="lazy"
               />
             </motion.div>
           </div>
@@ -182,6 +183,7 @@ export default function About() {
                   alt={leader.name} 
                   className="w-48 h-48 rounded-full mx-auto mb-6 object-cover shadow-lg"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
                 <h3 className="text-xl font-bold text-slate-900">{leader.name}</h3>
                 <p className="text-blue-600 font-medium">{leader.role}</p>

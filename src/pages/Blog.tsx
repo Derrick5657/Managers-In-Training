@@ -73,6 +73,7 @@ export default function Blog() {
               alt="Featured Post" 
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               referrerPolicy="no-referrer"
+              loading="lazy"
             />
           </div>
           <div className="p-8 md:p-12 flex flex-col justify-center">
@@ -111,6 +112,7 @@ export default function Blog() {
                   alt={post.title} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
               <div className="p-6 flex flex-col flex-grow">

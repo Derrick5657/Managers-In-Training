@@ -13,12 +13,28 @@ export default function Contact() {
     e.preventDefault();
     if (!agreed) return;
 
+    const formData = new FormData(e.currentTarget as HTMLFormElement);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      service: formData.get('service'),
+      message: formData.get('message'),
+      type: 'contact_form'
+    };
+
     setStatus('loading');
     trackEvent('form_submit', { type: 'contact_form' });
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) throw new Error('Failed to submit');
+      
       setStatus('success');
     } catch (err) {
       setStatus('error');

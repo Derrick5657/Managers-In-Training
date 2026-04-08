@@ -16,8 +16,14 @@ export default function LeadMagnet() {
     trackEvent('form_submit', { type: 'lead_magnet' });
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, type: 'lead_magnet' }),
+      });
+
+      if (!response.ok) throw new Error('Failed to submit');
+      
       setStatus('success');
     } catch (err) {
       setStatus('error');

@@ -117,6 +117,7 @@ export default function Services() {
                   alt={service.title} 
                   className="w-full h-full object-cover rounded-2xl"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
             </motion.div>
