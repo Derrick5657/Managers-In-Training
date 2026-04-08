@@ -1,74 +1,55 @@
 import { motion } from 'motion/react';
 import { Calendar, User, ArrowRight } from 'lucide-react';
+import SEO from '../components/SEO';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 const posts = [
   {
     id: 1,
-    title: 'The Future of B2B Sales: AI and Automation',
-    excerpt: 'Discover how artificial intelligence is reshaping the B2B sales landscape and how your team can adapt to stay ahead of the curve.',
+    title: '5 Reasons Your Sales Team is Missing Targets',
+    excerpt: 'Discover the common pitfalls in sales execution and how to fix them with better systems.',
+    author: 'MIT Consulting',
+    date: 'April 05, 2026',
     category: 'Sales',
-    author: 'David Reynolds',
-    date: 'Oct 15, 2023',
-    image: 'https://picsum.photos/seed/b2b/800/500'
+    image: 'https://picsum.photos/seed/sales_tips/800/500',
   },
   {
     id: 2,
-    title: 'Building a Resilient Corporate Culture',
-    excerpt: 'A strong culture is your best defense against high turnover. Learn the key pillars of building resilience within your organization.',
-    category: 'HR',
-    author: 'Sarah Jenkins',
-    date: 'Oct 02, 2023',
-    image: 'https://picsum.photos/seed/culture/800/500'
+    title: 'The Future of Marketing in Kenya: 2026 Trends',
+    excerpt: 'Why WhatsApp marketing is outperforming email and how to pivot your strategy.',
+    author: 'MIT Consulting',
+    date: 'March 28, 2026',
+    category: 'Marketing',
+    image: 'https://picsum.photos/seed/marketing_trends/800/500',
   },
   {
     id: 3,
-    title: 'Omnichannel Marketing Strategies for 2024',
-    excerpt: 'Why single-channel marketing is dead and how to create a cohesive brand experience across all customer touchpoints.',
-    category: 'Marketing',
-    author: 'Elena Rodriguez',
-    date: 'Sep 28, 2023',
-    image: 'https://picsum.photos/seed/omnichannel/800/500'
+    title: 'Building a Winning Corporate Culture',
+    excerpt: 'How to attract and retain top talent in a competitive East African market.',
+    author: 'MIT Consulting',
+    date: 'March 15, 2026',
+    category: 'HR',
+    image: 'https://picsum.photos/seed/hr_culture/800/500',
   },
-  {
-    id: 4,
-    title: 'Effective Leadership in Remote Environments',
-    excerpt: 'Managing distributed teams requires a shift in leadership style. Here are 5 strategies for effective remote management.',
-    category: 'Leadership',
-    author: 'Marcus Johnson',
-    date: 'Sep 15, 2023',
-    image: 'https://picsum.photos/seed/remote/800/500'
-  },
-  {
-    id: 5,
-    title: 'Optimizing Your Ad Spend During Economic Downturns',
-    excerpt: 'Don\'t cut your marketing budget; optimize it. Learn how to maximize ROI when every advertising dollar counts.',
-    category: 'Advertising',
-    author: 'Elena Rodriguez',
-    date: 'Sep 05, 2023',
-    image: 'https://picsum.photos/seed/adspend/800/500'
-  },
-  {
-    id: 6,
-    title: 'The Blueprint for a High-Converting Sales Funnel',
-    excerpt: 'Step-by-step guide to identifying leaks in your sales funnel and implementing strategies to improve conversion rates.',
-    category: 'Sales',
-    author: 'David Reynolds',
-    date: 'Aug 22, 2023',
-    image: 'https://picsum.photos/seed/funnel/800/500'
-  }
 ];
 
 export default function Blog() {
   return (
     <div className="bg-slate-50 min-h-screen py-20">
+      <SEO 
+        title="Business Insights & Blog" 
+        description="Expert advice on sales, marketing, and leadership for Kenyan businesses. Stay ahead with MIT's latest insights."
+        path="/blog"
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold text-slate-900 mb-6"
+            className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6"
           >
-            Insights & Resources
+            Business <span className="text-blue-600">Insights</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -76,7 +57,7 @@ export default function Blog() {
             transition={{ delay: 0.1 }}
             className="text-xl text-slate-600"
           >
-            Expert perspectives on sales, marketing, HR, and business strategy to help you stay ahead.
+            Expert strategies and local market trends to help you scale your business in Kenya.
           </motion.p>
         </div>
 
@@ -84,104 +65,82 @@ export default function Blog() {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="bg-white rounded-2xl overflow-hidden shadow-md mb-16 border border-slate-100"
+          className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 mb-16 grid grid-cols-1 lg:grid-cols-2"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            <div className="h-64 lg:h-auto relative">
-              <img 
-                src={posts[0].image} 
-                alt={posts[0].title} 
-                className="absolute inset-0 w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
+          <div className="h-64 lg:h-auto overflow-hidden">
+            <img 
+              src="https://picsum.photos/seed/featured_post/1200/800" 
+              alt="Featured Post" 
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <div className="p-8 md:p-12 flex flex-col justify-center">
+            <span className="text-blue-600 font-bold text-sm uppercase tracking-wider mb-4">Featured Article</span>
+            <h2 className="text-3xl font-bold text-slate-900 mb-6">How to Scale Your SME from 10 to 100 Employees</h2>
+            <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+              Scaling a business requires more than just more customers. It requires robust systems, delegated leadership, and a culture of accountability.
+            </p>
+            <div className="flex items-center text-sm text-slate-500 mb-8">
+              <User className="w-4 h-4 mr-2" /> MIT Consulting
+              <span className="mx-3">•</span>
+              <Calendar className="w-4 h-4 mr-2" /> April 07, 2026
             </div>
-            <div className="p-8 lg:p-12 flex flex-col justify-center">
-              <span className="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full mb-4 uppercase tracking-wider w-fit">
-                {posts[0].category}
-              </span>
-              <h2 className="text-3xl font-bold text-slate-900 mb-4 hover:text-blue-600 transition-colors cursor-pointer">
-                {posts[0].title}
-              </h2>
-              <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                {posts[0].excerpt}
-              </p>
-              <div className="flex items-center text-sm text-slate-500 mb-8">
-                <div className="flex items-center mr-6">
-                  <User className="w-4 h-4 mr-2" />
-                  {posts[0].author}
-                </div>
-                <div className="flex items-center">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  {posts[0].date}
-                </div>
-              </div>
-              <button className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 w-fit group">
-                Read Full Article <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
+            <WhatsAppButton 
+              page="blog" 
+              location="featured_post" 
+              message="Hi MIT, I read your article on scaling SMEs and would like to discuss how you can help my business."
+              className="w-fit"
+            />
           </div>
         </motion.div>
 
-        {/* Post Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.slice(1).map((post, index) => (
-            <motion.div
-              key={post.id}
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          {posts.map((post, index) => (
+            <motion.article
+              key={post.title}
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-lg transition-shadow flex flex-col"
+              className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 flex flex-col group"
             >
-              <div className="h-48 relative overflow-hidden">
+              <div className="h-48 overflow-hidden">
                 <img 
                   src={post.image} 
                   alt={post.title} 
-                  className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"
                 />
               </div>
               <div className="p-6 flex flex-col flex-grow">
-                <span className="inline-block px-3 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-full mb-4 uppercase tracking-wider w-fit">
-                  {post.category}
-                </span>
-                <h3 className="text-xl font-bold text-slate-900 mb-3 hover:text-blue-600 transition-colors cursor-pointer">
-                  {post.title}
-                </h3>
-                <p className="text-slate-600 mb-6 flex-grow line-clamp-3">
-                  {post.excerpt}
-                </p>
-                <div className="flex items-center justify-between text-sm text-slate-500 pt-4 border-t border-slate-100">
-                  <div className="flex items-center">
-                    <User className="w-4 h-4 mr-2" />
-                    <span className="truncate max-w-[100px]">{post.author}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    {post.date}
-                  </div>
+                <span className="text-blue-600 font-bold text-xs uppercase mb-3">{post.category}</span>
+                <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">{post.title}</h3>
+                <p className="text-slate-600 text-sm mb-6 flex-grow">{post.excerpt}</p>
+                <div className="flex items-center justify-between pt-6 border-t border-slate-50">
+                  <span className="text-xs text-slate-400">{post.date}</span>
+                  <button className="text-blue-600 font-bold text-sm flex items-center hover:translate-x-1 transition-transform">
+                    Read More <ArrowRight className="ml-1 w-4 h-4" />
+                  </button>
                 </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
 
-        {/* Newsletter */}
-        <div className="mt-20 bg-blue-600 rounded-3xl p-8 md:p-12 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Subscribe to Our Newsletter</h2>
-          <p className="text-blue-100 mb-8 max-w-2xl mx-auto">Get the latest insights, strategies, and industry news delivered directly to your inbox every week.</p>
+        {/* Newsletter / Lead Magnet */}
+        <div className="bg-slate-900 rounded-3xl p-8 md:p-12 text-white text-center">
+          <h2 className="text-3xl font-bold mb-6">Get Growth Insights in Your Inbox</h2>
+          <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
+            Join 5,000+ business owners receiving our weekly strategy teardowns.
+          </p>
           <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-4" onSubmit={(e) => e.preventDefault()}>
             <input 
               type="email" 
-              placeholder="Enter your email address" 
-              className="flex-grow px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
-              required
+              placeholder="Enter your email" 
+              className="flex-grow px-6 py-4 rounded-xl bg-slate-800 border border-slate-700 text-white focus:ring-2 focus:ring-blue-500 outline-none"
             />
-            <button 
-              type="submit" 
-              className="bg-slate-900 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-800 transition-colors whitespace-nowrap"
-            >
+            <button className="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-all">
               Subscribe
             </button>
           </form>

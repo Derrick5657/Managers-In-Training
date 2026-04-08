@@ -1,32 +1,40 @@
 import { motion } from 'motion/react';
 import { Target, Eye, Heart, CheckCircle2 } from 'lucide-react';
+import SEO from '../components/SEO';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 export default function About() {
   return (
     <div className="bg-white">
+      <SEO 
+        title="About Us" 
+        description="Learn about Managers in Training (MIT), Kenya's leading business growth consultancy. Our mission is to empower SMEs with systems for success."
+        path="/about"
+      />
+      
       {/* Header */}
       <div className="bg-slate-50 py-20 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold text-slate-900 mb-6"
+            className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6"
           >
-            About Managers in Training
+            Empowering Kenyan <span className="text-blue-600">SMEs</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-slate-600 max-w-3xl mx-auto"
+            className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
           >
-            We are a premier professional services firm dedicated to building high-performing teams and driving sustainable business growth.
+            Managers in Training (MIT) is a premier professional services firm dedicated to building high-performing teams and driving sustainable business growth through proven systems.
           </motion.p>
         </div>
       </div>
 
       {/* Our Story */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -34,17 +42,20 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold text-slate-900 mb-6">Our Story</h2>
-              <div className="space-y-4 text-lg text-slate-600 leading-relaxed">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">Our Story</h2>
+              <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
                 <p>
-                  Founded in 2015, Managers in Training (MIT) began with a simple observation: many businesses struggle not because of their product, but because of gaps in execution, leadership, and strategy.
+                  Founded in 2015, MIT began with a simple observation: many businesses in East Africa struggle not because of their product, but because of gaps in execution, leadership, and strategy.
                 </p>
                 <p>
                   We set out to create a holistic consulting firm that doesn't just deliver reports, but actively builds capabilities within organizations. From optimizing sales funnels to developing the next generation of corporate leaders, our approach is hands-on and results-driven.
                 </p>
                 <p>
-                  Today, MIT partners with SMEs, startups, and Fortune 500 companies across the globe, providing the expertise and training needed to navigate complex business landscapes.
+                  Today, MIT partners with over 500 SMEs and enterprises across Kenya, providing the expertise and training needed to navigate complex business landscapes and achieve market dominance.
                 </p>
+              </div>
+              <div className="mt-10">
+                <WhatsAppButton page="about" location="story_section" />
               </div>
             </motion.div>
             <motion.div
@@ -53,9 +64,9 @@ export default function About() {
               viewport={{ once: true }}
             >
               <img 
-                src="https://picsum.photos/seed/teamwork/800/600" 
-                alt="Team collaborating" 
-                className="rounded-2xl shadow-xl"
+                src="https://picsum.photos/seed/nairobi_office/800/600" 
+                alt="MIT Team in Nairobi" 
+                className="rounded-3xl shadow-2xl"
                 referrerPolicy="no-referrer"
               />
             </motion.div>

@@ -1,7 +1,9 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { CheckCircle2, ArrowRight } from 'lucide-react';
+import { CheckCircle2, ArrowRight, MessageCircle } from 'lucide-react';
 import { servicesData } from './Services';
+import SEO from '../components/SEO';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 export default function ServiceDetail() {
   const { id } = useParams<{ id: string }>();
@@ -12,28 +14,55 @@ export default function ServiceDetail() {
   }
 
   return (
-    <div className="bg-white">
+    <div className="bg-white min-h-screen">
+      <SEO 
+        title={service.title} 
+        description={service.shortDesc}
+        path={`/services/${service.id}`}
+      />
+
       {/* Hero */}
-      <div className="bg-slate-900 text-white py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="bg-slate-900 text-white py-24 lg:py-32 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <img 
+            src={service.image} 
+            alt="" 
+            className="w-full h-full object-cover blur-sm"
+            referrerPolicy="no-referrer"
+          />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
             >
-              <div className="inline-flex items-center justify-center p-3 bg-blue-600/20 rounded-xl mb-6">
+              <div className="inline-flex items-center justify-center p-4 bg-blue-600 rounded-2xl mb-8 shadow-lg">
                 {service.icon}
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">{service.title}</h1>
-              <p className="text-xl text-slate-300 leading-relaxed mb-8">
+              <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                {service.title}
+              </h1>
+              <p className="text-blue-400 font-bold text-xl mb-6 uppercase tracking-widest">
+                {service.outcome}
+              </p>
+              <p className="text-xl text-slate-300 leading-relaxed mb-10 max-w-xl">
                 {service.description}
               </p>
-              <Link
-                to="/contact"
-                className="inline-flex justify-center items-center px-8 py-4 text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-colors"
-              >
-                Book a Consultation
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <WhatsAppButton 
+                  page={`service_${service.id}`} 
+                  location="hero" 
+                  message={`Hi MIT, I'm interested in your ${service.title} and want to achieve ${service.outcome}.`}
+                  className="text-lg px-8 py-4"
+                />
+                <a
+                  href="#benefits"
+                  className="inline-flex justify-center items-center px-8 py-4 text-lg font-bold rounded-xl text-white border-2 border-white/30 hover:bg-white/10 transition-all"
+                >
+                  Learn More
+                </a>
+              </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -43,7 +72,7 @@ export default function ServiceDetail() {
               <img 
                 src={service.image} 
                 alt={service.title} 
-                className="rounded-2xl shadow-2xl"
+                className="rounded-3xl shadow-2xl border border-white/10"
                 referrerPolicy="no-referrer"
               />
             </motion.div>
@@ -52,21 +81,23 @@ export default function ServiceDetail() {
       </div>
 
       {/* Benefits & Process */}
-      <div className="py-24">
+      <div id="benefits" className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
             {/* Benefits */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold text-slate-900 mb-8">Key Benefits</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10">Why Choose Our {service.title}?</h2>
               <div className="space-y-6">
                 {service.benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start bg-slate-50 p-6 rounded-xl">
-                    <CheckCircle2 className="w-6 h-6 text-blue-600 mr-4 shrink-0" />
-                    <span className="text-lg text-slate-700 font-medium">{benefit}</span>
+                  <div key={index} className="flex items-start bg-white p-6 rounded-2xl shadow-sm border border-slate-100 group hover:border-blue-200 transition-all">
+                    <div className="bg-blue-50 p-2 rounded-lg mr-4 group-hover:bg-blue-600 transition-colors">
+                      <CheckCircle2 className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" />
+                    </div>
+                    <span className="text-lg text-slate-700 font-bold">{benefit}</span>
                   </div>
                 ))}
               </div>
@@ -79,14 +110,14 @@ export default function ServiceDetail() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <h2 className="text-3xl font-bold text-slate-900 mb-8">Our Process</h2>
-              <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-200 before:to-transparent">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10">Our Implementation Process</h2>
+              <div className="space-y-8">
                 {service.process.map((step, index) => (
-                  <div key={index} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                    <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-blue-600 text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                  <div key={index} className="flex items-center gap-6 group">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-slate-900 text-white font-black text-xl shadow-lg group-hover:bg-blue-600 transition-colors">
                       {index + 1}
                     </div>
-                    <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                    <div className="flex-grow bg-white p-6 rounded-2xl shadow-sm border border-slate-100 group-hover:shadow-md transition-all">
                       <h3 className="font-bold text-slate-900 text-lg">{step}</h3>
                     </div>
                   </div>
@@ -98,16 +129,31 @@ export default function ServiceDetail() {
       </div>
 
       {/* Bottom CTA */}
-      <div className="bg-slate-50 py-20">
+      <div className="bg-white py-24">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">Ready to transform your {service.title.toLowerCase()}?</h2>
-          <p className="text-lg text-slate-600 mb-8">Let's discuss how we can tailor our approach to meet your specific business goals.</p>
-          <Link
-            to="/contact"
-            className="inline-flex justify-center items-center px-8 py-4 text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-lg"
-          >
-            Get in Touch <ArrowRight className="ml-2 w-5 h-5" />
-          </Link>
+          <div className="inline-flex items-center justify-center p-3 bg-green-50 rounded-2xl mb-8">
+            <MessageCircle className="w-10 h-10 text-green-600" />
+          </div>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-8">
+            Ready to achieve {service.outcome.toLowerCase()}?
+          </h2>
+          <p className="text-xl text-slate-600 mb-12 leading-relaxed">
+            Don't let another month go by with stagnant growth. Let's build the systems that will take your business to the next level.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
+            <WhatsAppButton 
+              page={`service_${service.id}`} 
+              location="bottom_cta" 
+              message={`Hi MIT, I'm ready to start with ${service.title}. Let's discuss the next steps.`}
+              className="text-xl px-10 py-5"
+            />
+            <Link
+              to="/contact"
+              className="inline-flex justify-center items-center px-10 py-5 text-xl font-bold rounded-xl text-slate-700 border-2 border-slate-200 hover:bg-slate-50 transition-all shadow-sm"
+            >
+              Book Consultation <ArrowRight className="ml-2 w-6 h-6" />
+            </Link>
+          </div>
         </div>
       </div>
     </div>
